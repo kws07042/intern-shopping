@@ -59,10 +59,6 @@ yarn start
 
 <br>
 
-## 기여하기
-
-<br>
-
 ## 저자
 
 - **Janghwan**
