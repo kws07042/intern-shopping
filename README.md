@@ -10,10 +10,17 @@
 
 - User Interface
   - [ ] 메인 페이지
+  - [ ] 유저 어카운트 페이지
+  - [ ] NotFound 페이지
   - [ ] 로그인, 회원가입 페이지
   - [ ] 상품 목록 페이지
   - [ ] 상품 상세 페이지
   - [ ] 장바구니 페이지
+
+- Components
+  - [ ] Header
+  - [ ] Footer
+  - [ ] Navbar
 
 ### Server(Node Express)
 
