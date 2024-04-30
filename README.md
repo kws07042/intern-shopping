@@ -1,15 +1,37 @@
 # intern shopping web
 
-인턴 쇼핑에 오신 것을 환영합니다!
+인턴 동아리 프로젝트에 오신 것을 환영합니다!
 
 <br>
 
 ## 기능
 
+### Client(React.js)
+
+- User Interface
+  - [ ] 메인 페이지
+  - [ ] 로그인, 회원가입 페이지
+  - [ ] 상품 목록 페이지
+  - [ ] 상품 상세 페이지
+  - [ ] 장바구니 페이지
+
+### Server(Node Express)
+
+- API
+  - [ ] 회원가입
+  - [ ] 로그인
+  - [ ] 상품 목록 조회
+  - [ ] 상품 상세 조회
+  - [ ] 장바구니 조회
+  - [ ] 장바구니 추가
+  - [ ] 장바구니 삭제
+
 <br>
 
 ## 시작하기
+
 ### 설치 방법
+
 로컬에 저장소를 클론
 ```bash
 git clone https://github.com/yourusername/intern-shopping.git
