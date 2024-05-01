@@ -1,0 +1,12 @@
+[
+    {"PID": "PID001", "PName": "Wireless Bluetooth Headphones", "Price": 697, "Category": "Electronics", "Stock": 39, "Rating": 2.3, "DiscountRate": 0, "ImageURL": "https://example.com/product1.jpg"},
+    {"PID": "PID002", "PName": "Casual T-Shirt Men's", "Price": 650, "Category": "Home & Kitchen", "Stock": 64, "Rating": 3.0, "DiscountRate": 0, "ImageURL": "https://example.com/product2.jpg"},
+    {"PID": "PID003", "PName": "Science Fiction Novel Collection", "Price": 701, "Category": "Home & Kitchen", "Stock": 23, "Rating": 1.6, "DiscountRate": 0, "ImageURL": "https://example.com/product3.jpg"},
+    {"PID": "PID004", "PName": "Stainless Steel Cookware Set", "Price": 810, "Category": "Books", "Stock": 4, "Rating": 1.4, "DiscountRate": 0, "ImageURL": "https://example.com/product4.jpg"},
+    {"PID": "PID005", "PName": "Children's Building Blocks", "Price": 734, "Category": "Clothing", "Stock": 9, "Rating": 2.2, "DiscountRate": 0, "ImageURL": "https://example.com/product5.jpg"},
+    {"PID": "PID006", "PName": "Smartwatch Fitness Tracker", "Price": 689, "Category": "Electronics", "Stock": 7, "Rating": 4.9, "DiscountRate": 0, "ImageURL": "https://example.com/product6.jpg"},
+    {"PID": "PID007", "PName": "Classic Leather Wallet", "Price": 987, "Category": "Books", "Stock": 1, "Rating": 1.1, "DiscountRate": 0, "ImageURL": "https://example.com/product7.jpg"},
+    {"PID": "PID008", "PName": "Portable External Hard Drive", "Price": 710, "Category": "Electronics", "Stock": 99, "Rating": 4.9, "DiscountRate": 0, "ImageURL": "https://example.com/product8.jpg"},
+    {"PID": "PID009", "PName": "Professional DSLR Camera", "Price": 692, "Category": "Books", "Stock": 91, "Rating": 2.5, "DiscountRate": 0, "ImageURL": "https://example.com/product9.jpg"},
+    {"PID": "PID010", "PName": "LED Desk Lamp Modern", "Price": 963, "Category": "Electronics", "Stock": 27, "Rating": 1.9, "DiscountRate": 0, "ImageURL": "https://example.com/product10.jpg"}
+]
