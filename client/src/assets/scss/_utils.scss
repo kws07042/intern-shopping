@@ -1,0 +1,55 @@
+// Flexbox utilities
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (min-width: 768px) {
+    flex-wrap: nowrap;
+  }
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Grid utilities
+.grid {
+  display: grid;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); // 태블릿에서 2열
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr); // 데스크탑에서 4열
+  }
+}
+
+@for $i from 1 through 12 {
+  .grid-cols-#{$i} {
+    grid-template-columns: repeat($i, minmax(0, 1fr));
+  }
+
+  .grid-rows-#{$i} {
+    grid-template-rows: repeat($i, minmax(0, 1fr));
+  }
+}
+
+// Text utilities
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
