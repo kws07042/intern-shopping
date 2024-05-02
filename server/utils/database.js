@@ -1,4 +1,4 @@
-const mysql = require('mysql2/promise');
+import mysql from 'mysql2/promise';
 
 /**
  * 데이터베이스 연결 풀 생성
@@ -10,15 +10,7 @@ const mysql = require('mysql2/promise');
  * @param {number} connectionLimit - 풀에 생성할 수 있는 최대 연결 수.
  * @param {number} queueLimit - 대기열의 최대 크기. 0은 큐 크기 제한 없음을 의미
  */
-/*const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
-});*/
+
 const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
@@ -29,4 +21,4 @@ const pool = mysql.createPool({
     queueLimit: 0
 });
 
-module.exports = pool;
+export default pool;

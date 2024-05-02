@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import user from '../models/user.js';
+
 const router = express.Router();
-const User = require("../models/User");
 
 router.post('/', async (req, res) => {
     console.log(`req.body: ${JSON.stringify(req.body)}`); // 요청 본문 로그 출력
@@ -11,12 +12,12 @@ router.post('/', async (req, res) => {
     }
 
     try {
-        const result = await User.create({ uid, password });
+        const result = await user.create({ uid, password });
         res.status(200).json({ message: 'User created successfully', result });
     } catch (error) {
-        console.error(`Signup error: ${error}`);
+        console.error(`Signup error: ${error.message}`, error);
         res.status(500).json({ message: 'Error creating user', error: error.message });
     }
 });
 
-module.exports = router;
+export default router;

@@ -1,5 +1,7 @@
-const request = require('supertest');
-const app = require('../app'); // Express 애플리케이션의 인스턴스를 임포트합니다.
+import request from 'supertest'
+import app from '../app';
+/*const request = require('supertest');*/
+/*const app = require('../app');*/ // Express 애플리케이션의 인스턴스를 임포트합니다.
 
 describe('POST /signup', () => {
     it('should create a new user and return 200 status', async () => {
