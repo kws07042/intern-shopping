@@ -1,15 +1,11 @@
 import React from 'react';
+import {Form} from "react-router-dom";
 
 export default function Login() {
     return (
-        <div>
-            <form action="">
-                {/* Test ID(Email) */}
-                <input type="text"/>
-
-                {/* Test Password */}
-                <input type="text"/>
-            </form>
-        </div>
+        <>
+            <div>Login</div>
+            <Form/>
+        </>
     );
 }

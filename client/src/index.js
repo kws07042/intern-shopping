@@ -17,16 +17,13 @@ import Login from "./pages/Auth/Login";
 
 const router = createBrowserRouter([
     {
-        index: <App/>,
+        path: '/',
+        element: <App/>,
         errorElement: <NotFound/>,
         children: [
-            {path: '/', element: <Home/>},
-            {
-                path: '/auth', children: [
-                    {path: '/register', element: <Register/>},
-                    {path: '/login', element: <Login/>}
-                ]
-            }
+            {index: true, element: <Home/>},
+            {path: '/auth-register', element: <Register/>},
+            {path: '/auth-login', element: <Login/>}
         ]
     }
 ])
