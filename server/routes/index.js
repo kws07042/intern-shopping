@@ -1,9 +1,6 @@
 import express from 'express';
 import {selectAll} from '../utils/dbUtils.js';
 
-/*const {selectAll} = require("../utils/dbUtils");
-const express = require('express');
-*/
 const router = express.Router();
 
 router.get('/', async (req, res) => {

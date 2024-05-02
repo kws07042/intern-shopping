@@ -4,7 +4,8 @@ import user from '../models/user.js';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-    console.log(`req.body: ${JSON.stringify(req.body)}`); // 요청 본문 로그 출력
+    // 요청 본문 로그 출력
+    // console.log(`req.body: ${JSON.stringify(req.body)}`);
     const { uid, password } = req.body;
 
     if (!uid || !password) {
