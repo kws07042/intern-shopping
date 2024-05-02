@@ -1,10 +1,11 @@
 import React from 'react';
 
-export default function FormComponent({ END_POINT, method }) {
+export default function FormComponent({ END_POINT, method, fields }) {
     return (
         <form action={END_POINT} method={method}>
-            <input type="email" name={'uid'}/> {/*exam01@ansan.ac.kr*/}
-            <input type="text" name={'password'}/>
+            {fields.map((field, index) => (
+                <input key={index} type={field.type} name={field.name} placeholder={field.placeholder}/>
+            ))}
             <button>전송</button>
         </form>
     );
