@@ -78,7 +78,7 @@ export const selectProductById = async (id) => {
 export const selectCartByUserId = async (userId) => {
     const conn = await pool.getConnection();
     try {
-        const query = `SELECT * FROM cart WHERE userId = ?`;
+        const query = `SELECT * FROM cart WHERE id = ?`;
         const [rows] = await conn.query(query, [userId]);
         return rows;
     } catch (error) {
