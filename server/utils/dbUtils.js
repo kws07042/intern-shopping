@@ -64,6 +64,7 @@ export async function signInUser(uid, inputPassword) {
 
 export const selectProductById = async (id) => {
     const conn = await pool.getConnection();
+
     try {
         const query = `SELECT * FROM products WHERE id = ?`;
         const [rows] = await conn.query(query, [id]);
@@ -77,6 +78,7 @@ export const selectProductById = async (id) => {
 
 export const selectCartByUserId = async (userId) => {
     const conn = await pool.getConnection();
+
     try {
         const query = `SELECT * FROM cart WHERE id = ?`;
         const [rows] = await conn.query(query, [userId]);
