@@ -17,3 +17,17 @@ CREATE TABLE IF NOT EXISTS products(
     description TEXT,
     created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS orders(
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    user_id    INT             NOT NULL,
+    total      DECIMAL(10, 2)  NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+INSERT INTO products (name, price, description) VALUES ('Product 1', 10000, 'Description 1');
+INSERT INTO products (name, price, description) VALUES ('Product 2', 20000, 'Description 2');
+INSERT INTO products (name, price, description) VALUES ('Product 3', 30000, 'Description 3');
+INSERT INTO products (name, price, description) VALUES ('Product 4', 40000, 'Description 4');
+INSERT INTO products (name, price, description) VALUES ('Product 5', 50000, 'Description 5');
