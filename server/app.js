@@ -2,9 +2,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 
 // Import Route modules
-import indexRouter from './routes/index.js'
-import signupRouter from './routes/signup.js'
-import signinRouter from './routes/signin.js'
+import indexRouter from './routes/index.js';
+import signUpRouter from './routes/signUp.js';
+import signInRouter from './routes/signIn.js';
+import productsRouter from './routes/products.js';
 
 const app = express();
 
@@ -14,9 +15,9 @@ app.use(bodyParser.urlencoded({ extended: true })); // URL-encoded 요청 본문
 
 // Use route
 app.use('/', indexRouter);
-app.use('/signup', signupRouter);
-app.use('/signin', signinRouter);
-
+app.use('/signup', signUpRouter);
+app.use('/signin', signInRouter);
+app.use('/products', productsRouter);
 
 app.listen(8080, () => {
     console.log('서버 시작')
