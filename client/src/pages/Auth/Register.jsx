@@ -5,7 +5,10 @@ export default function Register() {
     return (
         <>
             <div>Register</div>
-            <FormComponent END_POINT={process.env.REACT_APP_ENDPOINT_SIGNUP}/>
+            <FormComponent
+                END_POINT={process.env.REACT_APP_ENDPOINT_SIGNUP}
+                method={'POST'}
+            />
         </>
     );
 }

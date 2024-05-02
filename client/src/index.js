@@ -14,6 +14,8 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Register from "./pages/Auth/Register";
 import Login from "./pages/Auth/Login";
+import MyAccount from "./pages/User/MyAccount";
+import ShoppingCart from "./pages/User/ShoppingCart";
 
 const router = createBrowserRouter([
     {
@@ -22,8 +24,10 @@ const router = createBrowserRouter([
         errorElement: <NotFound/>,
         children: [
             {index: true, element: <Home/>},
-            {path: '/auth-register', element: <Register/>},
-            {path: '/auth-login', element: <Login/>}
+            {path: '/auth/register', element: <Register/>},
+            {path: '/auth/login', element: <Login/>},
+            {path: '/user/my-account', element: <MyAccount/>},
+            {path: '/user/shopping-cart', element: <ShoppingCart/>},
         ]
     }
 ])
