@@ -1,15 +1,11 @@
 import React from 'react';
+import FormComponent from "../../components/FormComponent/FormComponent";
 
 export default function Register() {
     return (
-        <div>
-            <form action="">
-                {/* Test ID(Email) */}
-                <input type="text"/>
-
-                {/* Test Password */}
-                <input type="text"/>
-            </form>
-        </div>
+        <>
+            <div>Register</div>
+            <FormComponent END_POINT={process.env.REACT_APP_ENDPOINT_SIGNUP}/>
+        </>
     );
 }
