@@ -13,7 +13,7 @@ const app = express();
 
 // CORS 설정
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: process.env.CORS_ORIGIN,
     credentials: true
 }));
 
@@ -26,6 +26,7 @@ app.use('/', indexRouter);
 app.use('/signup', signUpRouter);
 app.use('/signin', signInRouter);
 app.use('/products', productsRouter);
+app.use('/cart', productsRouter);
 
 // 서버 실행
 app.listen(8080, () => {
