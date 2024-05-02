@@ -32,6 +32,7 @@ export async function signInUser(uid, inputPassword) {
     console.log(`uid: ${uid}`)
     console.log(`inputPassword: ${inputPassword}\n`)
     const conn = await pool.getConnection();
+
     try {
         console.log('로그인 시도중 ... ... ...')
         const query = `SELECT * FROM users WHERE uid = ?`;
@@ -54,6 +55,32 @@ export async function signInUser(uid, inputPassword) {
         } else {
             throw new Error('User not Found')
         }
+    } catch (error) {
+        throw error;
+    } finally {
+        if (conn) conn.release();
+    }
+}
+
+export const selectProductById = async (id) => {
+    const conn = await pool.getConnection();
+    try {
+        const query = `SELECT * FROM products WHERE id = ?`;
+        const [rows] = await conn.query(query, [id]);
+        return rows[0];
+    } catch (error) {
+        throw error;
+    } finally {
+        if (conn) conn.release();
+    }
+}
+
+export const selectCartByUserId = async (userId) => {
+    const conn = await pool.getConnection();
+    try {
+        const query = `SELECT * FROM cart WHERE userId = ?`;
+        const [rows] = await conn.query(query, [userId]);
+        return rows;
     } catch (error) {
         throw error;
     } finally {

@@ -18,6 +18,16 @@ CREATE TABLE IF NOT EXISTS products(
     created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS cart(
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    user_id    INT             NOT NULL,
+    product_id INT             NOT NULL,
+    quantity   INT             NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
 CREATE TABLE IF NOT EXISTS orders(
     id         INT AUTO_INCREMENT PRIMARY KEY,
     user_id    INT             NOT NULL,
@@ -26,6 +36,7 @@ CREATE TABLE IF NOT EXISTS orders(
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+-- insert data
 INSERT INTO products (name, price, description) VALUES ('Product 1', 10000, 'Description 1');
 INSERT INTO products (name, price, description) VALUES ('Product 2', 20000, 'Description 2');
 INSERT INTO products (name, price, description) VALUES ('Product 3', 30000, 'Description 3');
