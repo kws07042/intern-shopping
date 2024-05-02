@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <div>
             Home
-            <div>{account}</div>
+            <div>account: {account}</div>
         </div>
     );
 }
