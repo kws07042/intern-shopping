@@ -16,6 +16,7 @@ export default function Register() {
                 END_POINT={process.env.REACT_APP_ENDPOINT_SIGNUP}
                 method={'POST'}
                 fields={signUpFields}
+                useToken={false}
             />
         </>
     );

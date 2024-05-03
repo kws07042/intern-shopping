@@ -4,7 +4,7 @@ import {useAccount} from "../context/AuthContext";
 export default function Home() {
     // Test
     const {account} = useAccount() || null;
-    console.log(account);
+    console.log(`account: ${account}`);
 
     return (
         <div>

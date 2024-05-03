@@ -1,4 +1,6 @@
 import express from 'express';
+
+// 모델 import
 import user from '../models/user.js';
 
 // 유효성 검사 함수 import
@@ -17,15 +19,16 @@ router.post('/', async (req, res) => {
 
     // 이메일 형식 유효성 검사
     if (!isEmailValid(email)) {
-        return res.status(400).json({message: 'Invalid email format'});
-    }
-    
-    // 비밀번호 형식 유효성 검사
-    if (!isPasswordValid(password)) {
-        return res.status(400).json({message: 'Invalid password format'});
+        return res.status(400).json({ message: 'Invalid email format' });
     }
 
+    // 비밀번호 형식 유효성 검사
+    // if (!isPasswordValid(password)) {
+    //     return res.status(400).json({ message: 'Invalid password format' });
+    // }
+
     try {
+        // 사용자가 존재하지 않으면 새로운 사용자 생성
         const result = await user.create({email, password, username});
         res.status(200).json({
             message: 'User created successfully',

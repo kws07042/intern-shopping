@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 
-export default function FormComponent({ END_POINT, method, fields }) {
+export default function FormComponent({ END_POINT, method, fields, useToken = false }) {
     const navigate = useNavigate();
 
     // user 객체를 초기화할 때, fields 배열에 따라 동적으로 초기화
@@ -20,16 +20,31 @@ export default function FormComponent({ END_POINT, method, fields }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!user.email || !user.password) return alert('Invalid credentials');
+
+        const headers = {
+            'Content-Type': 'application/json'
+        }
+
+        if (useToken) {
+            const token = localStorage.getItem('token');
+            headers['Authorization'] = `Bearer ${token}`;
+        }
+
         try {
             const res = await fetch(END_POINT, {
                 method,
-                headers: {'Content-Type': 'application/json'},
+                headers,
                 body: JSON.stringify(user)
             });
-            if (!res.ok) throw new Error('Server response was not OK');
+
+            if (!res.ok) {
+                throw new Error('Server response was not OK');
+            }
 
             const data = await res.json();
-            console.log(data);
+            // DebugLog 서버 응답 데이터 출력
+            console.log(`data: ${JSON.stringify(data)}\n`);
 
             if (data.redirect) {
                 navigate(data.redirect);
