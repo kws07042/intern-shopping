@@ -5,7 +5,7 @@ const user = {
     create: async (userData) => {
         console.log(`userData.email: ${userData.email}`);
         console.log(`userData.password: ${userData.password}`);
-        console.log(`userData.password: ${userData.username}`);
+        console.log(`userData.username: ${userData.username}`);
         try {
             const hash = await bcrypt.hash(userData.password, 10);
             return await insertUser(

@@ -1,4 +1,6 @@
 import mysql from 'mysql2/promise';
+import dotenv from 'dotenv';
+dotenv.config();
 
 /**
  * 데이터베이스 연결 풀 생성
@@ -12,16 +14,17 @@ import mysql from 'mysql2/promise';
  */
 
 const pool = mysql.createPool({
-    user: 'root',
-    // host: process.env.DB_HOST,
-    // password: process.env.DB_PASS,
-    // database: process.env.DB_NAME,
-    host: 'root',
-    password: '1234',
-    database: 'cupang',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
 });
+console.log('DB_HOST:', process.env.DB_HOST);
+console.log('DB_USER:', process.env.DB_USER);
+console.log('DB_PASSWORD:', process.env.DB_PASS);
+console.log('DB_DATABASE:', process.env.DB_NAME);
 
 export default pool;
