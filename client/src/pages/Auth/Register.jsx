@@ -2,9 +2,10 @@ import React from 'react';
 import FormComponent from "../../components/FormComponent/FormComponent";
 
 const signUpFields = [
-    { name: 'uid', type: 'email', placeholder: '이메일' },
+    { name: 'email', type: 'email', placeholder: '이메일' },
     { name: 'password', type: 'password', placeholder: '비밀번호' },
-    { name: 'confirmPassword', type: 'password', placeholder: '비밀번호 확인' }
+    { name: 'confirmPassword', type: 'password', placeholder: '비밀번호 확인' },
+    { name: 'username', type: 'username', placeholder: '사용자 이름' }
 ];
 
 export default function Register() {

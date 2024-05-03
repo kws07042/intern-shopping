@@ -3,8 +3,8 @@ CREATE TABLE IF NOT EXISTS users(
     username   varchar(255) NOT NULL,
     password   varchar(255) NOT NULL,
     email      varchar(255) NOT NULL,
-    created_at datetime     NOT NULL,
-    updated_at datetime     NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8

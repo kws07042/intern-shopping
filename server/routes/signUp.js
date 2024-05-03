@@ -2,19 +2,21 @@ import express from 'express';
 import user from '../models/user.js';
 
 const router = express.Router();
-
 router.post('/', async (req, res) => {
-    // 요청 본문 로그 출력
-    // console.log(`req.body: ${JSON.stringify(req.body)}`);
-    const { uid, password } = req.body;
-
-    if (!uid || !password) {
-        return res.status(400).json({ message: 'Username and password are required' });
+    // DebugLog 요청 본문 로그 출력
+    console.log(`req.body: ${JSON.stringify(req.body)}`);
+    const {email, password, username} = req.body;
+    if (!email || !password) {
+        return res.status(400).json({message: 'Username and password are required'});
     }
 
     try {
-        const result = await user.create({ uid, password });
-        res.status(200).json({ message: 'User created successfully', result });
+        const result = await user.create({email, password, username});
+        res.status(200).json({
+            message: 'User created successfully',
+            result,
+            redirect: '/'
+        });
     } catch (error) {
         console.error(`Signup error: ${error.message}`, error);
         res.status(500).json({

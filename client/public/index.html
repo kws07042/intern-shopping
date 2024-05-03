@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
     <meta name="description" content="Web site created using create-react-app"/>
 
     <!-- SEO -->
-    <meta name="keywords" content="internship, shopping, deals, students, discount" />
+    <meta name="keywords" content="internship, shopping, deals, students, discount"/>
 
     <!-- Facebook / Open Graph -->
-    <meta property="og:title" content="Intern Shopping" />
-    <meta property="og:description" content="Find the best products for your internship needs!" />
-    <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
-    <meta property="og:url" content="http://www.yoursite.com" />
-    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Intern Shopping"/>
+    <meta property="og:description" content="Find the best products for your internship needs!"/>
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg"/>
+    <meta property="og:url" content="http://www.yoursite.com"/>
+    <meta property="og:type" content="website"/>
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Intern Shopping" />
-    <meta name="twitter:description" content="Find the best products for your internship needs!" />
-    <meta name="twitter:image" content="%PUBLIC_URL%/twitter-og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Intern Shopping"/>
+    <meta name="twitter:description" content="Find the best products for your internship needs!"/>
+    <meta name="twitter:image" content="%PUBLIC_URL%/twitter-og-image.jpg"/>
 
     <!-- CSP -->
     <link rel="stylesheet" type="text/css" href="../src/assets/scss/index.css">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://trusted.cdn.com; object-src 'none'; style-src 'self' 'unsafe-inline';">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' https://trusted.cdn.com;
+        object-src 'none';
+        style-src 'self' 'unsafe-inline';
+        connect-src 'self' http://localhost:5000;
+    ">
+
 
     <!-- PWA -->
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png"/>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
     <title>Intern Shopping</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root-wrap"></div>
-  </body>
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root-wrap"></div>
+</body>
 </html>

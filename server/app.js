@@ -13,8 +13,9 @@ const app = express();
 
 // CORS 설정
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,
-    credentials: true
+    origin: 'http://localhost:3000', // 특정 출처 허용
+    methods: ['GET', 'POST'], // 허용할 HTTP 메소드
+    credentials: true // 쿠키를 포함할지 설정
 }));
 
 // 미들웨어 설정
@@ -29,6 +30,6 @@ app.use('/products', productsRouter);
 app.use('/cart', productsRouter);
 
 // 서버 실행
-app.listen(8080, () => {
+app.listen(5000, () => {
     console.log('서버 시작')
 });

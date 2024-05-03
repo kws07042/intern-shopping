@@ -13,17 +13,21 @@ router.use(session({
 }));
 
 router.post('/', async (req, res) => {
-    // 요청 본문 로그 출력
+    // DebugLog 요청 본문 로그 출력
     console.log(`req.body: ${JSON.stringify(req.body)}`);
-    const {uid, password} = req.body;
+    const {email, password, username} = req.body;
     try {
-        const user = await signInUser(uid, password);
+        const user = await signInUser(email, password, username);
         
         // 사용자 아이디 세션에 저장
         if (user) {
             req.session.userId = user.id;
             req.session.isLogin = true;
-            res.status(200).json({ message: 'Login successful', user });
+            res.status(200).json({
+                message: 'Login successful',
+                user,
+                redirect: '/'
+            });
         } else {
             res.status(401).json({ message: 'Invalid credentials'});
         }

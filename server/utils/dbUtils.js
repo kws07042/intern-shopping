@@ -13,11 +13,11 @@ export async function selectAll(tableName) {
     }
 }
 
-export async function insertUser(uid, password) {
+export async function insertUser(email, password, username) {
     const conn = await pool.getConnection();
     try {
-        const query = `INSERT INTO users (uid, password) VALUES (?, ?)`;
-        const [results] = await conn.query(query, [uid, password]);
+        const query = `INSERT INTO users (email, password, username) VALUES (?, ?, ?)`;
+        const [results] = await conn.query(query, [email, password, username]);
         return results;
     } catch (error) {
         throw error;
@@ -28,15 +28,15 @@ export async function insertUser(uid, password) {
     }
 }
 
-export async function signInUser(uid, inputPassword) {
-    console.log(`uid: ${uid}`)
+export async function signInUser(email, inputPassword) {
+    console.log(`email: ${email}`)
     console.log(`inputPassword: ${inputPassword}\n`)
     const conn = await pool.getConnection();
 
     try {
         console.log('로그인 시도중 ... ... ...')
-        const query = `SELECT * FROM users WHERE uid = ?`;
-        const [results] = await conn.query(query, [uid]);
+        const query = `SELECT * FROM users WHERE email = ?`;
+        const [results] = await conn.query(query, [email]);
         console.log(results)
 
         if (results.length > 0) {
