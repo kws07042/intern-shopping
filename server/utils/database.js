@@ -12,8 +12,11 @@ import mysql from 'mysql2/promise';
  */
 
 const pool = mysql.createPool({
-    host: 'localhost',
     user: 'root',
+    // host: process.env.DB_HOST,
+    // password: process.env.DB_PASS,
+    // database: process.env.DB_NAME,
+    host: 'root',
     password: '1234',
     database: 'cupang',
     waitForConnections: true,
