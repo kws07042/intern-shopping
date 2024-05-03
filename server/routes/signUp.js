@@ -1,13 +1,28 @@
 import express from 'express';
 import user from '../models/user.js';
 
+// 유효성 검사 함수 import
+import {isEmailValid, isPasswordValid} from "../controllers/validation.js";
+
 const router = express.Router();
 router.post('/', async (req, res) => {
     // DebugLog 요청 본문 로그 출력
     console.log(`req.body: ${JSON.stringify(req.body)}`);
     const {email, password, username} = req.body;
+    
+    // 이메일과 비밀번호 null 체크
     if (!email || !password) {
         return res.status(400).json({message: 'Username and password are required'});
+    }
+
+    // 이메일 형식 유효성 검사
+    if (!isEmailValid(email)) {
+        return res.status(400).json({message: 'Invalid email format'});
+    }
+    
+    // 비밀번호 형식 유효성 검사
+    if (!isPasswordValid(password)) {
+        return res.status(400).json({message: 'Invalid password format'});
     }
 
     try {
