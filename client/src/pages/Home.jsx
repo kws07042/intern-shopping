@@ -1,18 +1,25 @@
-import React from 'react';
-import SearchBar from "../components/SearchBar/SearchBar";
+import React, {useEffect} from 'react';
 import Products from "../components/Products/Products";
 import CarouselSlider from "../components/CarouselSlider/CarouselSlider";
-import {useSearchParams} from "react-router-dom";
 
 export default function Home() {
-    const param = useSearchParams();
-    console.log(`param: ${param}`);
+    const [products, setProducts] = React.useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/products')
+            .then(res => res.json())
+            .then(data => {
+                console.log(`response data: ${data.rows}`);
+                setProducts(data.rows);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }, []);
 
     return (
         <div>
-            <div><SearchBar/></div>
             <CarouselSlider/>
-            <div><Products/></div>
+            <div><Products products={products}/></div>
         </div>
     );
 }

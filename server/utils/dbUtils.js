@@ -81,13 +81,13 @@ export const selectUserById = async (id) => {
     }
 }
 
-// 상품 아이디로 상품 조회
-export const selectProductById = async (id) => {
+// 이름으로 상품 조회
+export const selectProductByName = async (productName) => {
     const conn = await pool.getConnection();
 
     try {
-        const query = `SELECT * FROM products WHERE id = ?`;
-        const [rows] = await conn.query(query, [id]);
+        const query = `SELECT * FROM products WHERE name = ?`;
+        const [rows] = await conn.query(query, [productName]);
         return rows[0];
     } catch (error) {
         throw error;

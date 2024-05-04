@@ -1,19 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
-export default function Products() {
-    const [products, setProducts] = React.useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/products')
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setProducts(data.rows);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    }, []);
-
+export default function Products({products}) {
     return (
         <div>
             {products.map((product) => (

@@ -4,6 +4,7 @@ import {selectAll} from "../utils/dbUtils.js";
 const router = express.Router();
 
 router.get('/', async (req, res) => {
+    // console.log(`client data: ${req.body}`);
     try {
         const rows = await selectAll('products');
         res.status(200).json({

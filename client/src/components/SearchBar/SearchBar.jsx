@@ -7,7 +7,7 @@ export default function SearchBar() {
     const onChange = (e) => setUserInput(e.target.value);
 
     // 상품정보 받아오기
-    const onClick = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         console.log('검색어:', userInput);
 
@@ -15,20 +15,20 @@ export default function SearchBar() {
         const encodedInput = encodeURIComponent(userInput);
         console.log('인코딩된 검색어:', encodedInput);
         navigate(`products/search/product?name=${encodedInput}`);
+
+        //action={process.env.REACT_APP_ENDPOINT_SEARCH}
+        //method={'POST'}
     }
 
     return (
-        <form
-            //action={process.env.REACT_APP_ENDPOINT_SEARCH}
-            //method={'POST'}
-        >
+        <form onSubmit={handleSubmit}>
             <input
                 type="text"
                 name={userInput}
                 placeholder="상품을 검색하세요."
                 onChange={onChange}
             />
-            <button onClick={onClick}>검색</button>
+            <button>검색</button>
         </form>
     );
 }
