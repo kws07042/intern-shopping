@@ -2,8 +2,10 @@ import React from 'react';
 
 export default function CarouselSlider() {
     return (
-        <div>
-            
-        </div>
+        <ul>
+            <li>CarouselSlider1</li>
+            <li>CarouselSlider2</li>
+            <li>CarouselSlider3</li>
+        </ul>
     );
 }
