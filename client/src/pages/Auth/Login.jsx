@@ -1,5 +1,6 @@
 import React from 'react';
 import FormComponent from '../../components/FormComponent/FormComponent';
+import {useAccount} from "../../context/AuthContext";
 
 const loginFields = [
     { name: 'email', type: 'email', placeholder: '이메일' },
@@ -7,6 +8,9 @@ const loginFields = [
 ];
 
 export default function Login() {
+    const {login} = useAccount();
+    const handleLogin = (token) => login(token);
+
     return (
         <>
             <div>Login</div>
@@ -15,6 +19,7 @@ export default function Login() {
                 method={'POST'}
                 fields={loginFields}
                 useToken={true}
+                onSignIn={handleLogin}
             />
         </>
     );

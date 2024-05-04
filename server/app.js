@@ -7,6 +7,7 @@ import indexRouter from './routes/index.js';
 import signUpRouter from './routes/signUp.js';
 import signInRouter from './routes/signIn.js';
 import productsRouter from './routes/products.js';
+import userInfoRouter from './routes/user-info.js';
 
 // Express 객체 생성
 const app = express();
@@ -28,6 +29,7 @@ app.use('/signup', signUpRouter);
 app.use('/signin', signInRouter);
 app.use('/products', productsRouter);
 app.use('/cart', productsRouter);
+app.use('/user-info', userInfoRouter);
 
 // 서버 실행
 app.listen(5000, () => {

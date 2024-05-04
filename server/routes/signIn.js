@@ -6,8 +6,6 @@ dotenv.config();
 import {signInUser} from "../utils/dbUtils.js";
 import {isEmailValid, isPasswordValid} from "../controllers/validation.js";
 
-const SECRET_KEY = process.env.SECRET_KEY;
-console.log(`SECRET_KEY: ${SECRET_KEY}`);
 const generateToken = (user) => {
     const payload = {
         id: user.id,
@@ -45,6 +43,8 @@ router.post('/', async (req, res) => {
         // 사용자 아이디 토큰에 저장
         if (user) {
             const token = generateToken(user);
+            console.log(`Token generated: ${token}`)
+
             res.status(200).json({
                 message: 'Login successful',
                 user,

@@ -11,28 +11,35 @@ export const useAccount = () => {
 }
 
 export const AuthProvider = ({children}) => {
-    const [account, setAccount] = useState(null);
+    const [account, setAccount] = useState(() => {
+        const token = localStorage.getItem('token');    // 토큰을 로컬스토리지에서 가져옴
+        return {
+            token: token || null,
+            isAuthenticating: !!token // 토큰이 있으면 인증 중으로 설정
+        }
+    });
 
     useEffect(() => {
-        // 쿠키에서 토큰을 가져옴
-        const token = getCookies('token');
-
-        // 토큰이 있으면 상태를 업데이트
-        if (token) {
-            setAccount({ token: token });
-        }
+        const token = localStorage.getItem('token');
+        if (token) setAccount({ token, isAuthenticating: true });
+        else setAccount({ token: null, isAuthenticating: false });
     }, []);
 
+    console.log(`AuthContext account: ${JSON.stringify(account)}`);
+
+    const login = (token) => {
+        localStorage.setItem('token', token);
+        setAccount({ token, isAuthenticating: true });
+    }
+
+    const logout = () => {
+        localStorage.removeItem('token');
+        setAccount({ token: null, isAuthenticating: false });
+    }
+
     return (
-        <AuthContext.Provider value={{ account, setAccount }}>
+        <AuthContext.Provider value={{ ...account, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
-}
-
-// 쿠키에서 토큰을 가져오는 함수
-function getCookies(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
 }

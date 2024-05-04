@@ -15,7 +15,7 @@ export const selectAll = async (tableName) => {
 }
 
 // 사용자 추가(회원가입)
-export async function insertUser(email, password, username) {
+export const insertUser = async (email, password, username) => {
     const conn = await pool.getConnection();
     try {
         // 사용자가 입력한 이메일과 DB 내 데이터 비교
@@ -38,22 +38,17 @@ export async function insertUser(email, password, username) {
 }
 
 // 사용자 로그인
-export async function signInUser(email, inputPassword) {
-    console.log(`email: ${email}`)
-    console.log(`inputPassword: ${inputPassword}\n`)
+export const signInUser = async (email, inputPassword) => {
     const conn = await pool.getConnection();
 
     try {
         console.log('로그인 시도중 ... ... ...')
         const query = `SELECT * FROM users WHERE email = ?`;
         const [results] = await conn.query(query, [email]);
-        console.log(results)
 
         if (results.length > 0) {
             const storedHash = results[0].password;
             const hashMatch = await bcrypt.compare(inputPassword, storedHash);
-            console.log(`storedHash: ${storedHash}`)
-            console.log(`hashMatch: ${hashMatch}`)
 
             if (hashMatch) {
                 console.log('비밀번호 일치');
@@ -65,6 +60,20 @@ export async function signInUser(email, inputPassword) {
         } else {
             throw new Error('User not Found')
         }
+    } catch (error) {
+        throw error;
+    } finally {
+        if (conn) conn.release();
+    }
+}
+
+// 로그인한 사용자 정보 조회
+export const selectUserById = async (id) => {
+    const conn = await pool.getConnection();
+    try {
+        const query = `SELECT * FROM users WHERE id = ?`;
+        const [rows] = await conn.query(query, [id]);
+        return rows[0];
     } catch (error) {
         throw error;
     } finally {

@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
 
-export default function FormComponent({ END_POINT, method, fields, useToken = false }) {
+export default function FormComponent({ END_POINT, method, fields, useToken = false, onSignIn}) {
     const navigate = useNavigate();
 
     // user 객체를 초기화할 때, fields 배열에 따라 동적으로 초기화
@@ -22,19 +22,10 @@ export default function FormComponent({ END_POINT, method, fields, useToken = fa
         e.preventDefault();
         if (!user.email || !user.password) return alert('Invalid credentials');
 
-        const headers = {
-            'Content-Type': 'application/json'
-        }
-
-        if (useToken) {
-            const token = localStorage.getItem('token');
-            headers['Authorization'] = `Bearer ${token}`;
-        }
-
         try {
             const res = await fetch(END_POINT, {
                 method,
-                headers,
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(user)
             });
 
@@ -43,8 +34,18 @@ export default function FormComponent({ END_POINT, method, fields, useToken = fa
             }
 
             const data = await res.json();
-            // DebugLog 서버 응답 데이터 출력
-            console.log(`data: ${JSON.stringify(data)}\n`);
+            // 서버 응답 데이터 출력 DebugLog
+            console.log(`서버 응답 데이터 출력 data: ${JSON.stringify(data)}\n`);
+
+            if (data.token) {
+                // 확인용 로그 DebugLog
+                console.log(`Storing token: ${data.token}`);
+                localStorage.setItem('token', data.token);
+
+                // 토큰 저장 후 DebugLog
+                console.log(`Token Send: ${data.token}`)
+                onSignIn && onSignIn(data.token);
+            }
 
             if (data.redirect) {
                 navigate(data.redirect);
