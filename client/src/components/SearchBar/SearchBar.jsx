@@ -6,7 +6,10 @@ export default function SearchBar() {
 
 
     return (
-        <form action={process.env.REACT_APP_ENDPOINT_SEARCH} method={'POST'}>
+        <form
+            action={process.env.REACT_APP_ENDPOINT_SEARCH}
+            method={'POST'}
+        >
             <input
                 type="text"
                 name={userInput}
