@@ -22,13 +22,9 @@ export default function SearchByProducts() {
 
             try {
                 const res = await fetch(`${ENDPOINT}?name=${name}`); // ?name=${name}
-                console.log(`response: ${res.status}`);
-
                 if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
                 const data = await res.json();
-                console.log('SearchByProducts data:', data);
-
                 setProducts(data.rows);
             } catch (error) {
                 setError(error.message);

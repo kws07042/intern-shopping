@@ -1,5 +1,8 @@
 import express from "express";
 
+// import Models
+import Cart from "../models/cart.js";
+
 const router = express.Router();
 router.get('/', (req, res) => {
     try {
