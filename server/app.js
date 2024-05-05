@@ -12,7 +12,6 @@ import authRouter from './routes/auth.js';
 import productsRouter from './routes/products.js';
 import cartRouter from './routes/cart.js';
 import userInfoRouter from './routes/user-info.js';
-import SearchByProductsRouter from './routes/product-search.js';
 
 // Express 객체 생성
 const app = express();
@@ -46,7 +45,6 @@ app.use(bodyParser.urlencoded({ extended: true })); // URL-encoded 요청 본문
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/products', productsRouter);
-app.use('/products/search/product', SearchByProductsRouter);
 app.use('/cart', cartRouter);
 app.use('/user-info', userInfoRouter);
 
