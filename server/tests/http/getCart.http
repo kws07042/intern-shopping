@@ -1,12 +1,28 @@
 ### GET: 장바구니 목록 가져오기
 GET http://localhost:5000/cart
-
-### POST: 장바구니에 아이템 추가
-POST http://localhost:5000/cart/add
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJleGFtMDFAYW5zYW4uYWMua3IiLCJ1c2VybmFtZSI6IjEyMzQzIiwiaWF0IjoxNzE0ODg1NjQ3LCJleHAiOjE3MTQ4OTI4NDd9.LmbTSyA7Lw8Y2imMP42XZuGlX8EQddmhgxsIRMUYkOk
 Content-Type: application/json
 
 {
-  "id": "item123",
-  "name": "Sample Item",
-  "price": 29.99
+  "email": "exam02@ansan.ac.kr",
+  "password": "1234"
+}
+
+### POST: 장바구니에 아이템 추가
+POST http://localhost:5000/cart/add
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJleGFtMDFAYW5zYW4uYWMua3IiLCJ1c2VybmFtZSI6IjEyMzQzIiwiaWF0IjoxNzE0ODg0MDM3LCJleHAiOjE3MTQ4OTEyMzd9.vG2QXId8i3jN9dZjXoEIUM9A9eIsL72zxP-IhDmM618
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "product_id": 1
+}
+
+### POST: 장바구니에 아이템 삭제
+POST http://localhost:5000/cart/remove
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "product_id": 1
 }
