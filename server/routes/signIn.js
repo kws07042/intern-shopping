@@ -17,6 +17,8 @@ const generateToken = (user) => {
 }
 
 const router = express.Router();
+
+// POST: 로그인
 router.post('/', async (req, res) => {
     // DebugLog 요청 본문 로그 출력
     console.log(`req.body: ${JSON.stringify(req.body)}`);

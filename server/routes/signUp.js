@@ -1,7 +1,7 @@
 import express from 'express';
 
 // 모델 import
-import user from '../models/user.js';
+import userModel from '../models/userModel.js';
 
 // 유효성 검사 함수 import
 import {isEmailValid, isPasswordValid} from "../controllers/validation.js";
@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
 
     try {
         // 사용자가 존재하지 않으면 새로운 사용자 생성
-        const result = await user.create({email, password, username});
+        const result = await userModel.create({email, password, username});
         res.status(200).json({
             message: 'User created successfully',
             result,

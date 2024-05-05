@@ -8,6 +8,7 @@ export default function Products({products}) {
                     <h1>{product.name}</h1>
                     <p>{product.description}</p>
                     <p>{product.price}</p>
+                    <button>상품 담기</button>
                 </div>
             ))}
         </div>

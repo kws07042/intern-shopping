@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import {insertUser} from "../utils/dbUtils.js";
 
-const user = {
+const userModel = {
     create: async (userData) => {
         console.log(`userData.email: ${userData.email}`);
         console.log(`userData.password: ${userData.password}`);
@@ -19,4 +19,4 @@ const user = {
     }
 };
 
-export default user;
+export default userModel;

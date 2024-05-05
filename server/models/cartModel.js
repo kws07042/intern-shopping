@@ -1,4 +1,4 @@
-class Cart {
+class CartModel {
     constructor(cart = {}) {
         this.products = cart.products || {};
         this.totalProducts = cart.totalProducts || 0;
@@ -32,8 +32,12 @@ class Cart {
 
     // getter
     getProducts() {
-        return Object.values(this.products);
+        let arr = [];
+        for (let id in this.products) {
+            arr.push(this.products[id]);
+        }
+        return arr;
     }
 }
 
-export default Cart;
+export default CartModel;
