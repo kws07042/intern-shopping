@@ -7,6 +7,7 @@ import indexRouter from './routes/index.js';
 import signUpRouter from './routes/signUp.js';
 import signInRouter from './routes/signIn.js';
 import productsRouter from './routes/products.js';
+import cartRouter from './routes/cart.js';
 import userInfoRouter from './routes/user-info.js';
 import SearchByProductsRouter from './routes/product-search.js';
 
@@ -30,7 +31,7 @@ app.use('/signup', signUpRouter);
 app.use('/signin', signInRouter);
 app.use('/products', productsRouter);
 app.use('/products/search/product', SearchByProductsRouter);
-app.use('/cart', productsRouter);
+app.use('/cart', cartRouter);
 app.use('/user-info', userInfoRouter);
 
 // 서버 실행

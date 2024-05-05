@@ -1,0 +1,12 @@
+### GET: 장바구니 목록 가져오기
+GET http://localhost:5000/cart
+
+### POST: 장바구니에 아이템 추가
+POST http://localhost:5000/cart/add
+Content-Type: application/json
+
+{
+  "id": "item123",
+  "name": "Sample Item",
+  "price": 29.99
+}

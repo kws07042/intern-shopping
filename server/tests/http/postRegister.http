@@ -1,0 +1,13 @@
+### POST: 회원가입 테스트
+POST http://localhost:5000/signup
+Content-Type: application/json
+
+{
+  "email": "exam10@ansan.ac.kr",
+  "username": "testuser",
+  "password": "testpassword123"
+}
+
+### DELETE: 테스트 후 사용자 삭제 (기능 미구현, 직접 쿼리콘솔에서 데이터 삭제 및 객체 변경)
+DELETE http://localhost:5000/signup/testuser@example.com
+Content-Type: application/json
