@@ -10,7 +10,7 @@ import userModel from '../models/userModel.js';
 
 // validation 함수 import
 import {signInUser} from "../utils/dbUtils.js";
-import {isEmailValid, isPasswordValid} from "../controllers/validation.js";
+import {isEmailValid, isPasswordValid} from "../utils/validation.js";
 
 const generateToken = (user) => {
     const payload = {

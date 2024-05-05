@@ -1,25 +1,19 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Products from "../components/Products/Products";
 import CarouselSlider from "../components/CarouselSlider/CarouselSlider";
+import useFetch from "../hooks/useFetch";
 
 export default function Home() {
-    const [products, setProducts] = React.useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/products')
-            .then(res => res.json())
-            .then(data => {
-                console.log(`response data: ${data.rows}`);
-                setProducts(data.rows);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    }, []);
+    const {data, error, loading} = useFetch('products');
 
     return (
         <>
             <CarouselSlider/>
-            <div><Products products={products}/></div>
+            <div>
+                {loading && <p>로딩 중...</p>}
+                {error && <p>오류: {error}</p>}
+                <Products products={data}/>
+            </div>
         </>
     );
 }
