@@ -17,6 +17,7 @@ const user = {
     email: 'exam01@anasan.ac.kr',
 }
 
+
 // GET: 로그인한 사용자의 장바구니 목록
 router.get('/', async (req, res) => {
     console.log(`req.session: ${JSON.stringify(req.session)}`);
@@ -32,6 +33,7 @@ router.get('/', async (req, res) => {
         cart: cart
     });
 });
+
 
 // POST: 로그인한 사용자의 장바구니에 아이템 추가
 router.post('/add', async (req, res) => {
@@ -55,6 +57,7 @@ router.post('/add', async (req, res) => {
         result
     });
 });
+
 
 // POST: 로그인한 사용자의 장바구니에 아이템 삭제
 router.post('/remove', async (req, res) => {

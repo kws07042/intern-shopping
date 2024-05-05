@@ -1,9 +1,18 @@
+### POST: 로그인 테스트
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+  "email": "exam01@ansan.ac.kr",
+  "password": "1234"
+}
+
 ### POST: 회원가입 테스트
 POST http://localhost:5000/signup
 Content-Type: application/json
 
 {
-  "email": "exam10@ansan.ac.kr",
+  "email": "exam11@ansan.ac.kr",
   "username": "testuser",
   "password": "testpassword123"
 }

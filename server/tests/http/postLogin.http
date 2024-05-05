@@ -1,8 +1,0 @@
-### POST: 로그인 테스트
-POST http://localhost:5000/signin
-Content-Type: application/json
-
-{
-  "email": "exam01@ansan.ac.kr",
-  "password": "1234"
-}
