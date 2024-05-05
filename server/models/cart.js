@@ -32,7 +32,7 @@ class Cart {
 
     // getter
     getProducts() {
-        return Object.this.values(this.products);
+        return Object.values(this.products);
     }
 }
 
