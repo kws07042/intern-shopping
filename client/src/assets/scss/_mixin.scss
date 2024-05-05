@@ -1,24 +1,17 @@
-// BreakPoints
-$breakpoints-up: (
-        "mobile": "40em",
-        "laptop": "64em",
-        "desktop": "90em"
-);
-
-$breakpoints-down: (
-        "mobile": "40em",
-        "laptop": "64em",
-        "desktop": "90em"
-);
+@use 'variables';
 
 @mixin minimum($size) {
-    @media (min-width: map-get($breakpoints-up, $size)) {
+    @media (min-width: map-get(variables.$breakpoints-up, $size)) {
         @content;
     }
 }
 
 @mixin maximum($size) {
-    @media (max-width: map-get($breakpoints-down, $size)) {
+    @media (max-width: map-get(variables.$breakpoints-down, $size)) {
         @content;
     }
+}
+
+@mixin col-span($span) {
+    grid-column: span $span;
 }

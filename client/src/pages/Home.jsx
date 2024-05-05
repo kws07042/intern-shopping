@@ -17,9 +17,9 @@ export default function Home() {
     }, []);
 
     return (
-        <div>
+        <>
             <CarouselSlider/>
             <div><Products products={products}/></div>
-        </div>
+        </>
     );
 }

@@ -1,3 +1,16 @@
 // Colors (임시 색상)
 $primary: #fff;
 $secondary: #333;
+
+// BreakPoints
+$breakpoints-up: (
+        "mobile": "40em",
+        "laptop": "64em",
+        "desktop": "90em"
+);
+
+$breakpoints-down: (
+        "mobile": "40em",
+        "laptop": "64em",
+        "desktop": "90em"
+);
