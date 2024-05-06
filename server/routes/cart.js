@@ -1,13 +1,6 @@
 import express from "express";
 import pool from "../utils/database.js";
 
-// import middleware
-import authenticateToken from "../middleware/authToken.js";
-
-// import models
-import CartModel from "../models/cartModel.js";
-import products from "./products.js";
-
 const router = express.Router();
 
 // TEST: 사용자 데이터
@@ -17,20 +10,20 @@ const user = {
     email: 'exam01@anasan.ac.kr',
 }
 
-
 // GET: 로그인한 사용자의 장바구니 목록
 router.get('/', async (req, res) => {
     console.log(`req.session: ${JSON.stringify(req.session)}`);
     console.log(`req.user: ${JSON.stringify(req.user)}`);
 
     const conn = await pool.getConnection();
-    const sql = `SELECT * FROM cart WHERE user_id = ?`;
-    const [cart] = await conn.query(sql, [user.id]);
-    console.log(`cart: ${JSON.stringify(cart)}`);
+    //const sql = `SELECT * FROM cart WHERE user_id = ?`;
+    const sql = `SELECT * FROM cart`;
+    const [rows] = await conn.query(sql, [user.id]);
+    console.log(`cart: ${JSON.stringify(rows)}`);
 
     res.status(200).json({
         message: 'Cart list',
-        cart: cart
+        cart: rows
     });
 });
 

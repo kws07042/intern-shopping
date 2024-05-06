@@ -40,6 +40,10 @@ app.use(session({
 // 미들웨어 설정
 app.use(bodyParser.json()); // JSON 요청 본문을 파싱목적
 app.use(bodyParser.urlencoded({ extended: true })); // URL-encoded 요청 본문을 파싱목적
+/*app.use((req, res, next) => {
+    logger.info(`client data: ${JSON.stringify(req.body)}`);
+    next();
+});*/
 
 // Use route
 app.use('/', indexRouter);

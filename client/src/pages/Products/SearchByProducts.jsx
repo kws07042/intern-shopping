@@ -11,7 +11,6 @@ export default function SearchByProducts() {
 
     const param = `products?name=${name}`
     const {data, error, loading} = useFetch(param, [name]);
-    console.log(`data: ${data}`);
 
     return (
         <div>

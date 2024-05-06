@@ -1,10 +1,9 @@
 ### GET: 장바구니 목록 가져오기
 GET http://localhost:5000/cart
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJleGFtMDFAYW5zYW4uYWMua3IiLCJ1c2VybmFtZSI6IjEyMzQzIiwiaWF0IjoxNzE0ODg1NjQ3LCJleHAiOjE3MTQ4OTI4NDd9.LmbTSyA7Lw8Y2imMP42XZuGlX8EQddmhgxsIRMUYkOk
 Content-Type: application/json
 
 {
-  "email": "exam02@ansan.ac.kr",
+  "email": "exam01@ansan.ac.kr",
   "password": "1234"
 }
 

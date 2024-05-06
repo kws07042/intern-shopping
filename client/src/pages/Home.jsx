@@ -5,14 +5,18 @@ import useFetch from "../hooks/useFetch";
 
 export default function Home() {
     const {data, error, loading} = useFetch('products');
+    
+    // json 속성에 직접 접근
+    const products = data?.products;
+    console.log(`Home products: ${products}`);
 
     return (
         <>
             <CarouselSlider/>
             <div>
-                {loading && <p>로딩 중...</p>}
-                {error && <p>오류: {error}</p>}
-                <Products products={data}/>
+                {loading && <div>Loading...</div>}
+                {error && <div>{error}</div>}
+                <Products products={products}/>
             </div>
         </>
     );

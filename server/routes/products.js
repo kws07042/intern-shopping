@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
         const rows = await selectAll('products');
         res.status(200).json({
             message: 'Product list',
-            rows
+            products: rows
         });
     } catch (error) {
         console.error(`Product list error: ${error.message}`, error);
