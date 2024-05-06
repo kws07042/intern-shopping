@@ -2,10 +2,12 @@ import React from 'react';
 
 export default function CarouselSlider() {
     return (
-        <ul>
-            <li>CarouselSlider1</li>
-            <li>CarouselSlider2</li>
-            <li>CarouselSlider3</li>
-        </ul>
+        <div className={'c-container col-12'}>
+            <ul className={'s-carousel flex flex-center'}>
+                <li className={'c-item'}>CarouselSlider1</li>
+                <li className={'c-item'}>CarouselSlider2</li>
+                <li className={'c-item'}>CarouselSlider3</li>
+            </ul>
+        </div>
     );
 }

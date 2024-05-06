@@ -13,10 +13,10 @@ export default function Home() {
     return (
         <>
             <CarouselSlider/>
-            <div>
+            <div className={'col-12'}>
                 {loading && <div>Loading...</div>}
                 {error && <div>{error}</div>}
-                <Products products={products}/>
+                <Products products={products} className={'grid'}/>
             </div>
         </>
     );

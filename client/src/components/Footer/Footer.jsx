@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Footer() {
     return (
-        <footer>
+        <footer className={'col-12'}>
             <section>
-                <ul>
+                <ul className={'flex'}>
                     <li>배송정보</li>
                     <li>교환 및 반품</li>
                     <li>이용약관</li>

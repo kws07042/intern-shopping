@@ -5,11 +5,11 @@ import {BsCart3} from "react-icons/bs";
 
 export default function Navbar() {
     return (
-        <nav>
+        <nav className={'s-navbar flex'}>
             <div>
                 <NavLink to={'/'}>Logo</NavLink>
             </div>
-            <ul>
+            <ul className={'s-nav-list flex'}>
                 <li>
                     <NavLink to={'/user/my-account'}>
                         <span><FaRegUser/></span>
