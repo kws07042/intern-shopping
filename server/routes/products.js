@@ -1,4 +1,5 @@
 import express from "express";
+import pool from "../utils/database.js";
 import {selectAll, selectProductByName} from "../utils/dbUtils.js";
 
 const router = express.Router();
@@ -39,6 +40,22 @@ router.get('/search/product', async (req, res) => {
     } catch (error) {
         res.status(500).send({message: 'Error searching product', error: error.message});
     }
+});
+
+// 상품 상세페이지 (쿼리스트링 사용)
+router.get('/product', async (req, res) => {
+    const productId = req.query.id;
+
+    const conn = await pool.getConnection();
+    const sql = `SELECT * FROM products WHERE id = ?`;
+    const [rows] = await conn.query(sql, [productId]);
+    conn.release();
+
+
+    res.status(200).json({
+        message: 'Product detail',
+        product: rows
+    });
 });
 
 export default router;
