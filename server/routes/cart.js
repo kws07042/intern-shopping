@@ -13,11 +13,21 @@ const user = {
 // GET: 로그인한 사용자의 장바구니 목록
 router.get('/', async (req, res) => {
     console.log(`req.session: ${JSON.stringify(req.session)}`);
-    console.log(`req.user: ${JSON.stringify(req.user)}`);
 
     const conn = await pool.getConnection();
     //const sql = `SELECT * FROM cart WHERE user_id = ?`;
-    const sql = `SELECT * FROM cart`;
+    const sql = `
+        SELECT
+            cart.user_id,
+            cart.product_id,
+            cart.quantity,
+            products.id,
+            products.name,
+            products.price,
+            products.description
+        FROM cart
+        JOIN products ON cart.product_id = products.id
+        WHERE cart.user_id = ?`;
     const [rows] = await conn.query(sql, [user.id]);
     console.log(`cart: ${JSON.stringify(rows)}`);
 

@@ -27,18 +27,28 @@ router.get('/search/product', async (req, res) => {
 
     // 검색어가 없을 때의 처리
     if (!name) {
-        return res.status(400).json({ message: '검색어를 입력하세요.' });
+        return res.status(400).json({
+            message: '검색어를 입력하세요.'
+        });
     }
 
     try {
         const products = await selectProductByName(name);
         if (!products) {
-            return res.status(404).json({ message: '검색 결과가 없습니다.' });
+            return res.status(404).json({
+                message: '검색 결과가 없습니다.'
+            });
         }
 
-        res.status(200).json({message: 'Product search result', products});
+        res.status(200).json({
+            message: 'Product search result',
+            products
+        });
     } catch (error) {
-        res.status(500).send({message: 'Error searching product', error: error.message});
+        res.status(500).send({
+            message: 'Error searching product',
+            error: error.message
+        });
     }
 });
 
@@ -50,6 +60,7 @@ router.get('/product', async (req, res) => {
     const sql = `SELECT * FROM products WHERE id = ?`;
     const [rows] = await conn.query(sql, [productId]);
     conn.release();
+
 
 
     res.status(200).json({
