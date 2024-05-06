@@ -1,6 +1,7 @@
 import React from 'react';
 import {useAccount} from "../../context/AuthContext";
 import {jwtDecode} from "jwt-decode";
+import {Link} from "react-router-dom";
 
 export default function MyAccount() {
     const {...account} = useAccount();
@@ -30,6 +31,10 @@ export default function MyAccount() {
                 {account && account.token && (
                     <button onClick={account.logout}>로그아웃</button>
                 )}
+            </div>
+            <div>
+                <h2>주문내역</h2>
+                <Link to={'/user/my-orders'}>바로가기</Link>
             </div>
         </div>
     );

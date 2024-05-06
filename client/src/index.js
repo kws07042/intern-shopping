@@ -18,6 +18,7 @@ import MyAccount from "./pages/User/MyAccount";
 import ShoppingCart from "./pages/User/ShoppingCart";
 import ProductDetails from "./pages/Products/ProductDetails";
 import SearchByProducts from "./pages/Products/SearchByProducts";
+import MyOrders from "./pages/User/MyOrders";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
             {path: '/auth/register', element: <Register/>},
             {path: '/auth/login', element: <Login/>},
             {path: '/user/my-account', element: <MyAccount/>},
+            {path: '/user/my-orders', element: <MyOrders/>},
             {path: '/user/shopping-cart', element: <ShoppingCart/>},
             {path: '/products/:product-name', element: <ProductDetails/>},
             {path: '/products/search/:product-name', element: <SearchByProducts/>},
