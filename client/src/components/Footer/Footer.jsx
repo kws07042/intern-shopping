@@ -6,6 +6,7 @@ export default function Footer() {
         <nav>
             <ul className={"footer-nav"}>
                 <li>
+                    {/*풀리퀘스트 예시입니다*/}
                     {/*NavLink사용*/}
                 <NavLink to={"/shipping"}>배송정보</NavLink>
                 <NavLink to={"/exchange"}>교환 및 반품</NavLink>
