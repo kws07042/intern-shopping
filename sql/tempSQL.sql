@@ -1,17 +1,19 @@
 CREATE TABLE IF NOT EXISTS users(
-    id         int(11)      NOT NULL AUTO_INCREMENT,
+    uid         int(11)      NOT NULL AUTO_INCREMENT,
     username   varchar(255) NOT NULL,
     password   varchar(255) NOT NULL,
     email      varchar(255) NOT NULL,
+    phone      varchar(255) NOT NULL,
+    address    varchar(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
+    PRIMARY KEY (uid)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8
   AUTO_INCREMENT = 1;
 
 CREATE TABLE IF NOT EXISTS products(
-    id          INT AUTO_INCREMENT PRIMARY KEY,
+    pid          INT AUTO_INCREMENT PRIMARY KEY,
     name        VARCHAR(255)   NOT NULL,
     price       DECIMAL(10, 2) NOT NULL,
     description TEXT,
@@ -19,21 +21,21 @@ CREATE TABLE IF NOT EXISTS products(
 );
 
 CREATE TABLE IF NOT EXISTS cart(
-    id         INT AUTO_INCREMENT PRIMARY KEY,
+    cid         INT AUTO_INCREMENT PRIMARY KEY,
     user_id    INT             NOT NULL,
     product_id INT             NOT NULL,
     quantity   INT             NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (product_id) REFERENCES products(id)
+    FOREIGN KEY (user_id) REFERENCES users(uid),
+    FOREIGN KEY (product_id) REFERENCES products(pid)
 );
 
 CREATE TABLE IF NOT EXISTS orders(
-    id         INT AUTO_INCREMENT PRIMARY KEY,
+    oid         INT AUTO_INCREMENT PRIMARY KEY,
     user_id    INT             NOT NULL,
-    total      DECIMAL(10, 2)  NOT NULL,
+    total_price      DECIMAL(10, 2)  NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (user_id) REFERENCES users(uid)
 );
 
 -- insert data
