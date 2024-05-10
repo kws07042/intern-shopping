@@ -1,16 +1,16 @@
 import React from 'react';
 import useFetch from "../../hooks/useFetch";
 
-export default function ShoppingCart() {
-    const {data, error, loading} = useFetch('cart');
-    const cart = data?.cart;
-    console.log(`cart: ${JSON.stringify(cart)}`)
+export default function ShoppingCart({cart}) {
+   // const {data, error, loading} = useFetch('cart');
+   // const cart = data?.cart;
+    //console.log(`cart: ${JSON.stringify(cart)}`)
 
     return (
         <div>
             ShoppingCart
-            {loading && <div>Loading...</div>}
-            {error && <div>{error}</div>}
+            {/*{loading && <div>Loading...</div>}*/}
+            {/*{error && <div>{error}</div>}*/}
             {cart && cart.length > 0 ? (
                 cart.map((item, index) => (
                     <ul key={index}>
